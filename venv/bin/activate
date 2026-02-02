@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV=/Users/hunter/Desktop/task/holly-eng-take-home-app-docker/mcp-tool-sql/venv
+VIRTUAL_ENV=/Users/hunter/Desktop/task/holly-eng-take-home-app-github/mcp-tool-sql/venv
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

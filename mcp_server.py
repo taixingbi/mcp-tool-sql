@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from typing import Any, Dict, Optional
 
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)  # .env overrides shell env (e.g. OPENAI_API_KEY from Cursor)
 
 from fastapi import FastAPI
 from fastapi.middleware.trustedhost import TrustedHostMiddleware

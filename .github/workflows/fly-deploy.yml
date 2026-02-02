@@ -12,6 +12,22 @@ jobs:
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
+      - name: Set Fly secrets from GitHub
+        run: |
+          flyctl secrets set \
+            OPENAI_API_KEY="${{ secrets.OPENAI_API_KEY }}" \
+            LANGCHAIN_API_KEY="${{ secrets.LANGCHAIN_API_KEY }}" \
+            MYSQL_PASSWORD="${{ secrets.MYSQL_PASSWORD }}" \
+            LANGSMITH_TRACING="${{ vars.LANGSMITH_TRACING }}" \
+            LANGCHAIN_ENDPOINT="${{ vars.LANGCHAIN_ENDPOINT }}" \
+            LANGCHAIN_PROJECT="${{ vars.LANGCHAIN_PROJECT }}" \
+            MYSQL_HOST="${{ vars.MYSQL_HOST }}" \
+            MYSQL_PORT="${{ vars.MYSQL_PORT }}" \
+            MYSQL_USER="${{ vars.MYSQL_USER }}" \
+            MYSQL_DATABASE="${{ vars.MYSQL_DATABASE }}"
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
       - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

@@ -1,4 +1,4 @@
-#!/Users/hunter/Desktop/task/holly-eng-take-home-app-docker/mcp-tool-sql/venv/bin/python3.11
+#!/Users/hunter/Desktop/task/holly-eng-take-home-app-github/mcp-tool-sql/venv/bin/python3.11
 import sys
 from distro.distro import main
 if __name__ == '__main__':

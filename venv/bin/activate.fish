@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /Users/hunter/Desktop/task/holly-eng-take-home-app-docker/mcp-tool-sql/venv
+set -gx VIRTUAL_ENV /Users/hunter/Desktop/task/holly-eng-take-home-app-github/mcp-tool-sql/venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH
