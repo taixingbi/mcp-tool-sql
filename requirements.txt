@@ -10,3 +10,5 @@ pymysql
 
 langchain-community
 langchain-openai
+
+pytest
