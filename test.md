@@ -1,6 +1,12 @@
-### local
+# MCP SQL Agent – Test Cases
 
-input:
+Examples for calling the `sql_agent` tool via JSON-RPC over HTTP. Use `-N` for no buffering (streaming) and `-sS` for silent + show errors.
+
+---
+
+### Local (uvicorn on localhost:8000)
+
+**Input:** JSON-RPC `tools/call` request – `question` (natural language) and `limit` (max rows, 1–50)
 ```
 curl -N -sS "http://localhost:8000/mcp/" \
   -H "Accept: application/json, text/event-stream" \
@@ -21,7 +27,7 @@ curl -N -sS "http://localhost:8000/mcp/" \
   }'
 ```
 
-output:
+**Output:** SSE `event: message` with `result.structuredContent.result` containing `ok`, `answer`, `token_usage`, `error`
 ```
 {
   "event": "message",
@@ -75,8 +81,11 @@ output:
 ```
 
 
-### run fly
-input
+---
+
+### Fly.io (https://mcp-tool-sql.fly.dev)
+
+**Input:** Same JSON-RPC format, different base URL
 ```
 curl -N -sS "https://mcp-tool-sql.fly.dev/mcp/" \
   -H "Content-Type: application/json" \
@@ -97,7 +106,7 @@ curl -N -sS "https://mcp-tool-sql.fly.dev/mcp/" \
   }'
 ```
 
-### output
+**Output:** Same structure as local
 ```
 {
   "jsonrpc": "2.0",
@@ -133,7 +142,7 @@ curl -N -sS "https://mcp-tool-sql.fly.dev/mcp/" \
 ```
 
 
-input
+**Input:** Aggregation query (highest average by jurisdiction)
 ```
 curl -N -sS "https://mcp-tool-sql.fly.dev/mcp/" \
   -H "Content-Type: application/json" \
